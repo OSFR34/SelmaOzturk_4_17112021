@@ -20,6 +20,9 @@ body {
   max-width: 1300px;
   margin: 0 auto;
 }
+#blocpage {
+  max-width: 1300px;
+}
 
 p {
   margin-bottom: 0;
@@ -32,13 +35,17 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  margin: 3rem 1.5rem 2rem 1.5rem;
 }
 .header-logo {
     float: left;
 }
+/* .header-logo img {
+  padding-top: 5px;
+} */
 .main-navbar {
     float: right;
+    padding: 0.3rem;
 }
 .topnav a {
   float: left;
@@ -48,14 +55,14 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1rem;
   font-family: Roboto, sans-serif;
 }
 
 .topnav a:hover {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: blue;
 }
 
 .topnav a.active {
@@ -69,10 +76,11 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+    font-size: x-large;
+    color: red;
   }
 }
 
@@ -81,56 +89,74 @@ img {
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 1rem;
   }
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
   }
+  div .header-logo img{
+    max-width: 15vw;
+    max-height: 10vh;
+  }  
 }
+
 
 
 
  @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none
+  }
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: -10px;
   }
-} 
-
-main {
-  font-size: 130%;
-  font-weight: bolder;
-  color: black;
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 1px 20px 15px;
-  border-radius: 2rem;
-  text-align: justify;
-
-
-}
-
+  div .header-logo img {
+    max-width: 35vw;
+    max-height: 10vh;
+  } 
+  .fa-bars {
+    margin-top: 8px;
+    color: red;
+  }
+  main {
+    font-size: 120%;
+    font-weight: bolder;
+    color: black;
+    padding-top: 0.5vw;
+    /* padding-left: 2vw;
+    padding-right: 2vw; Retrait pour aligner logo et box accueil */
+    margin: 1px 1.5rem 5rem 1.5rem;
+    border-radius: 2rem;
+    text-align: justify;
+  }
+  .btn-submit, .btn-signup {
+    font-size: 1rem;
+  }  
+  .bground {
+    background-color: rgba(26, 39, 156, 0.1);
+  }
+  footer {
+    font-size: xx-small;
+  }
+}  
 .modal-btn {
-  font-size: 145%;
+  /* font-size: 145%; */
   background: #fe142f;
   display: flex;
   margin: auto;
-  padding: 2em;
+  /* padding: 2em; */
   color: #fff;
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
   cursor: pointer;
 }
-
 .modal-btn:hover {
   background: #3876ac;
 }
-
 .footer {
   margin: 20px;
   padding: 10px;
@@ -166,11 +192,13 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: rgba(26, 39, 156, 0.1);
 }
 
 .content {
   margin: 5% auto;
+  /* ajout margin-top pour faire apparaitre le titre */
+  margin-top: 100px;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -181,6 +209,14 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  min-height: 600px;
+  padding: 30px;
+  /* display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: xx-large; */
+
 }
 
 .modal-body {
@@ -328,10 +364,12 @@ input[data-error]::after {
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
-  padding: 12px 82px;
+  /* padding: 12px 82px; Retrait pour que le texte reste sur la même ligne*/
   color: #fff;
   cursor: pointer;
   border: 0;
+  text-align: center;
+  margin-top: 20px;
 }
 /* custom select styles */
 .custom-select {
@@ -368,6 +406,9 @@ input[data-error]::after {
   transform: rotate(135deg);
   top: 13px;
 }
+/* .fa-bars {
+  color: red;
+} */
 
 .select-items div,
 .select-selected {
@@ -405,7 +446,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  /* min-height: 93vh; Retrait car déforme l'image et augmente la hauteur */
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -414,20 +455,21 @@ input[data-error]::after {
   margin-bottom: 10px;
 }
 .hero-content {
-  padding: 51px 67px;
+  padding: 3rem;
   grid-column: span 4;
   background: #232323;
   color: #fff;
   position: relative;
-  text-align: left;
-  min-width: 424px;
+  /* text-align: justify; */
+  /* letter-spacing: 0.2px; */
+  /* min-width: 424px;Retrait pour que le texte ne soit pas couper */
 }
 .hero-content::after {
   content: "";
   width: 100%;
   height: 100%;
   background: #232323;
-  position: absolute;
+  /* position: absolute; */
   right: -80px;
   top: 0;
 }
@@ -436,16 +478,19 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
+  font-size: 5.5rem;
   font-weight: normal;
   white-space: nowrap;
+  padding-top: 2rem;
 }
 .hero-text {
-  width: 146%;
+  width: 100%;
   font-weight: normal;
-  margin-top: 57px;
+  margin: 57px 0px 57px 0px;
   padding: 0;
+  font-size: 1.5rem;
 }
+
 .btn-signup {
   outline: none;
   text-transform: capitalize;
@@ -456,6 +501,8 @@ input[data-error]::after {
 }
 .hero-img {
   grid-column: span 8;
+  max-width: 1200px;  /* ajouts 2 lignes pour conformité maquette  */
+  max-height: 1000px ;
 }
 .hero-img img {
   width: 100%;
@@ -473,12 +520,18 @@ input[data-error]::after {
 .hero-section > .btn-signup {
   display: none;
 }
-footer {
-  padding-left: 2vw;
+/* footer {
+  /* padding-left: 2vw;
   padding-right: 2vw;
-  margin: 0 20px;
-}
-@media screen and (max-width: 800px) {
+  margin: 0 20px; */
+
+
+@media screen and (max-width: 768px) {
+  .topnav a {
+    padding: 0;
+    margin: 0;
+  }  
+  
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -486,7 +539,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0px;
   }
   .hero-content::after {
     content: unset;
@@ -495,12 +548,15 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2rem;
+    font-weight: bolder;
     white-space: normal;
+    /* text-align: justify; */
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    hyphens: auto;
   }
   .hero-img img {
     border-radius: 10px;
@@ -515,6 +571,8 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+ 
+  
 }
 
 @keyframes modalopen {
@@ -526,4 +584,21 @@ footer {
     opacity: 1;
   }
 }
+
+
+.error-message {
+  color:red;
+  font-size: 0.8rem;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+#success-message{
+
+    width:90%;
+    margin:0 auto;
+    text-align:center;
+
+}
+
 
