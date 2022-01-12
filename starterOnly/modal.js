@@ -68,7 +68,7 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
          resultVerifCity === true && 
          resultVerifConditions === true){
 
-          // J'affiche le message de validation de formulaire
+          // J'affiche le message de validation de formulaire.
 
           const modalBody = document.querySelector(".modal-body");
 
