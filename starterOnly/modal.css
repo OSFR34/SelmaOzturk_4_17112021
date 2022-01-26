@@ -31,6 +31,8 @@ p {
 
 img {
   padding-right: 1rem;
+  width: auto;
+  height: auto; 
 }
 
 .topnav {
@@ -75,14 +77,6 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a.icon {
-    float: right;
-    display: block;
-    font-size: x-large;
-    color: red;
-  }
-}
 
 @media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
@@ -91,6 +85,12 @@ img {
     right: 0;
     top: 1rem;
   }
+  /* .topnav a.icon {
+    float: right;
+    display: block;
+    font-size: x-large;
+    color: red;
+  } */
   .topnav.responsive a {
     float: none;
     display: block;
@@ -593,12 +593,14 @@ input[data-error]::after {
   padding-bottom: 5px;
 }
 
-#success-message{
+.success-message{
 
     width:90%;
     margin:0 auto;
     text-align:center;
-
+    font-size: 30px;
+    padding: 20vh 2vh 17vh 2vh;  
 }
+
 
 

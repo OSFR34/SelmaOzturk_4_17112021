@@ -1,5 +1,7 @@
+"use strict";
+
 function editNav() {
-  var x = document.getElementById("myTopnav");
+  var x = document.getElementById("Topnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -77,8 +79,10 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
           form.reset();
 
           const successMessage = `
-
-              <p id="success-message">Merci pour votre inscription</p>
+              <div class="success-message">
+                <div>Merci pour </div>
+                <div>votre inscription </div>
+              </div>
 
               <input readonly
                   id="close-success-message"
