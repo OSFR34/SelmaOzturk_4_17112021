@@ -79,18 +79,21 @@ img {
 
 
 @media screen and (max-width: 768px) {
+  main {
+       margin: 1px 1.5rem 5rem 1.5rem;
+  }
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 1rem;
   }
-  /* .topnav a.icon {
+  .topnav a.icon {
     float: right;
     display: block;
     font-size: x-large;
     color: red;
-  } */
+  }
   .topnav.responsive a {
     float: none;
     display: block;
