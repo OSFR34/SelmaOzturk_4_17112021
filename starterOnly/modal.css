@@ -10,11 +10,6 @@
 }
 /* Landing Page */
 
-
-
-
-
-
 .topnav
 body {
   margin: 0;
@@ -26,8 +21,10 @@ body {
   max-width: 1300px;
   margin: 0 auto;
 }
+
 #blocpage {
   max-width: 1300px;
+  margin: 0 auto;
 }
 
 p {
@@ -43,7 +40,7 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3rem 1.5rem 2rem 1.5rem;
+  margin: 3rem 0rem 2rem 1.5rem;
 }
 .header-logo {
     float: left;
@@ -51,10 +48,13 @@ img {
 /* .header-logo img {
   padding-top: 5px;
 } */
-.main-navbar {
+.main-navbar{
     float: right;
     padding: 0.3rem;
+
 }
+
+
 .topnav a {
   float: left;
   display: block;
@@ -63,7 +63,7 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: Roboto, sans-serif;
 }
 
@@ -77,11 +77,26 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+ 
 }
 
-/* .topnav .icon {
+.topnav .icon {
   display: none;
-} */
+}
+
+@media screen and (min-width: 760px) and (max-width: 1300px) {
+  /* .topnav .icon {
+   color:red;
+  } */
+  .responsiveNavbar {
+    font-size: 1rem;
+  }
+  .fa-bars {
+    display: none;
+  
+
+  }
+}
 
 
 @media screen and (max-width: 768px) {
@@ -93,6 +108,7 @@ img {
     position: absolute;
     right: 0;
     top: 1rem;
+    display: block;
   }
   .topnav a.icon {
     float: right;
@@ -109,6 +125,10 @@ img {
     max-width: 15vw;
     max-height: 10vh;
   }  
+   .fa-bars {
+    margin-top: 8px;
+    color: red;
+  }
 }
 
 
@@ -122,17 +142,15 @@ img {
     float: right;
     display: block;
     margin-top: -10px;
-  }
+  
+   }
   div .header-logo img {
     max-width: 35vw;
     max-height: 10vh;
   } 
-  .fa-bars {
-    margin-top: 8px;
-    color: red;
-  }
+ 
   main {
-    font-size: 120%;
+    font-size: 100%;
     font-weight: bolder;
     color: black;
     padding-top: 0.5vw;
