@@ -2,12 +2,14 @@
 
 function editNav() {
   var x = document.getElementById("myTopnav");
-  if (x.className === " topnav") {
-    x.className += "responsive";
+  if (x.className === "topnav") {
+    x.className += " responsive";
   } else {
     x.className = "topnav";
   }
 }
+
+document.querySelector("#burger-menu").addEventListener("click", editNav);
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
@@ -28,7 +30,6 @@ closeButtons.forEach((closeButton)=>{
     });
 
 });
-
 
 document.querySelector(".btn-submit").addEventListener("click", function(){
 
@@ -61,7 +62,6 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
       const resultVerifConditions = verifConditions(conditions);
 
 
-
       if(resultVerifLastName === true &&
          resultVerifName === true && 
          resultVerifEmail === true && 
@@ -89,10 +89,10 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
                   class="button btn-submit"
                   value="Fermer"
               />
-                        
+          
           `;
 
-          // ModalConain contient le formulaire qu'il y'a dans la modale avant l'injection du message de reussite.
+          // ModalContent contient le formulaire qu'il y'a dans la modale avant l'injection du message de reussite.
           const storeForm = modalBody.removeChild(form);
 
           modalBody.innerHTML = successMessage;
@@ -106,7 +106,6 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
           });
 
       }
-
 
   });
 
@@ -160,10 +159,8 @@ function  verifEmail(value){
 
   errorMessageEmail.style.display = "none";
 
-
   return true;
 }
-
 
 function verifDate(value){
 
@@ -242,7 +239,6 @@ function verifCity(citiesCollection){
    errorMessageCities.style.display = "none";
    return true;
 
-
 }
 
 function verifConditions(isChecked){
@@ -267,5 +263,3 @@ function verifConditions(isChecked){
 function launchModal() {
   modalbg.style.display = "block";
 }
-
-
