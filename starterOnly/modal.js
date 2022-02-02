@@ -1,9 +1,9 @@
 "use strict";
 
 function editNav() {
-  var x = document.getElementById("Topnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  var x = document.getElementById("myTopnav");
+  if (x.className === " topnav") {
+    x.className += "responsive";
   } else {
     x.className = "topnav";
   }
@@ -89,7 +89,7 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
                   class="button btn-submit"
                   value="Fermer"
               />
-          
+                        
           `;
 
           // ModalConain contient le formulaire qu'il y'a dans la modale avant l'injection du message de reussite.
