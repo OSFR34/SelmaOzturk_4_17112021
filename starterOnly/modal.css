@@ -230,7 +230,7 @@ p {
 
 .modal-body {
   padding: 25px;
-  margin: 15px auto;
+  margin: 0px auto;
 }
 
 label {
@@ -273,8 +273,8 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
+
+/* input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
@@ -612,6 +612,6 @@ input[data-error]::after {
     width: 90%;
     margin: 0 auto;
     text-align:center;
-    font-size: 30px;
+    font-size: 40px;
     padding: 20vh 2vh 17vh 2vh;  
 }

@@ -1,5 +1,7 @@
 "use strict";
 
+
+// display navBar
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -17,6 +19,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
 // launch modal event
+
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 const closeButtons = document.querySelectorAll(".close");
@@ -30,6 +33,8 @@ closeButtons.forEach((closeButton)=>{
     });
 
 });
+
+// SUBMITTED CONFIRMATION
 
 document.querySelector(".btn-submit").addEventListener("click", function(){
 
@@ -70,7 +75,8 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
          resultVerifCity === true && 
          resultVerifConditions === true){
 
-          // J'affiche le message de validation de formulaire.
+          // display validation message.
+         
 
           const modalBody = document.querySelector(".modal-body");
 
@@ -92,7 +98,8 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
           
           `;
 
-          // ModalContent contient le formulaire qu'il y'a dans la modale avant l'injection du message de reussite.
+          // En : modal-body contains the form that is in the modal before the injection of the success message.
+          // Fr : modal-body contient le formulaire qu'il y a dans la modale avant l'injection du message de reussite.
           const storeForm = modalBody.removeChild(form);
 
           modalBody.innerHTML = successMessage;
@@ -109,6 +116,8 @@ document.querySelector(".btn-submit").addEventListener("click", function(){
 
   });
 
+// FORM FIELD VALIDATION
+// control validition Name
 function verifName(value){
 
       const errorMessagePrenom = document.querySelector("#error-message-prenom");     
@@ -116,7 +125,7 @@ function verifName(value){
       if(value === "" || value.length < 2){
 
           errorMessagePrenom.innerHTML = "Veuillez entrer un  prénom qui a au moins de 2 caractères";
-
+         
           return errorMessagePrenom.style.display = "block";
 
       }
@@ -125,6 +134,9 @@ function verifName(value){
 
       return true;
 }  
+
+
+// control validition Last Name
 
 function verifLastName(value){
 
@@ -143,7 +155,7 @@ function verifLastName(value){
   return true;
 }
 
-// contrôle validité e-mail
+// control validition e-mail
 
 function  verifEmail(value){ 
 
@@ -162,6 +174,8 @@ function  verifEmail(value){
   return true;
 }
 
+// control validition date birth
+
 function verifDate(value){
 
    const errorMessageDate = document.querySelector("#error-message-date");
@@ -178,7 +192,7 @@ function verifDate(value){
 
    const year = date.getFullYear();
 
-   if(year < 1930 || year > 2022){
+   if(year < 1930 || year > 2021){
 
     errorMessageDate.innerHTML = "Veuillez entrer une date valide";
 
@@ -191,6 +205,8 @@ function verifDate(value){
     return true;
 
 }
+
+// control validition number tournament
 
 function verifTournamentsNumber(value){
 
@@ -209,6 +225,8 @@ function verifTournamentsNumber(value){
  return true;
 
 }
+
+// control validition City
 
 function verifCity(citiesCollection){
 
@@ -241,6 +259,8 @@ function verifCity(citiesCollection){
 
 }
 
+// control validition conditions 
+
 function verifConditions(isChecked){
 
   const errorMessageConditions = document.querySelector("#error-message-conditions");
@@ -259,7 +279,8 @@ function verifConditions(isChecked){
 
 }
 
-// launch modal form
+// En :launch modal form
+// Fr : lancer le formulaire modal
 function launchModal() {
   modalbg.style.display = "block";
 }
