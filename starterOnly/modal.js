@@ -27,7 +27,7 @@ closeModalBtn.addEventListener("click", closeModal)
 //close modal form
 function closeModal() {
   modalbg.style.display = "none";
-  // document.querySelector('form').reset(); // le formulaire se reset à la fermeture du modal.
+  // document.querySelector('form').reset(); //permet la fermeture de la modal.
 }
 
 //DOM elements
@@ -44,15 +44,18 @@ const checkboxConditions = document.getElementById('checkbox1');
 const errorConditions = document.getElementById('errorConditionsText');
 
 //REGEX
+// permets l'acceptation des caractères spéciaux même autre que celle de l'aphabet français
 let nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ-]{2,}/;
+
+// permets de vérifier une syntaxe est bien de type exemple@email.com
 let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; 
 
-// Affiche erreur si la valeur de l'input est invalide.
+//si la valeur de l'input est invalide: affiche le message d'erreur  et l'encadré rouge ds l'input concerné
 function showError(input) {
-    input.style.border = 'solid 2px #ff4e60';
+    input.style.border = "solid 2px red";
     input.nextElementSibling.style.display = "block";
 }
-// Rien ne s'affiche/permet d'enlever le message d'erreur si la valeur de l'input est valide.
+// si la valeur de l'input est valide:  Rien ne s'affiche ou retrait des dispositifs d'erreurs.
 function showSuccess(input) {
 	input.style.border = 'none';
     input.nextElementSibling.style.display = "none";
@@ -86,7 +89,7 @@ function verifLastName() {
 
 //check email
 function verifEmail() {
-    // Si la valeur du champ email correspond au REGEX, le champ est valide. Sinon on affiche l'erreur.
+    // Si la valeur du champ email correspond au REGEX, le champ est valide. Sinon on affiche l'affichage d'erreur.
     if (email.value.match(emailRegex)) { // si l'email est valide, match le Regex, 
         showSuccess(email);
         return true;
