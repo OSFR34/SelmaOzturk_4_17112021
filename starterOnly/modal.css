@@ -39,7 +39,7 @@ margin: 8% 3.5% 3.5% 3.5%;
 }    
 .main-navbar {
     float: right;
-    padding-top:-;
+    padding-top:0px;
 }
 .topnav a {
   float: left;
@@ -158,9 +158,9 @@ margin: 8% 3.5% 3.5% 3.5%;
   }  
   .hero-headline {
     font-size: 50%;
-  } */
+  } 
   footer {
-    font-size: xx-small;
+    font-size: 0.8rem;
   }
 }  
 .modal-btn {

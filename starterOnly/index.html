@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8" />
   <title>Réservation</title>
@@ -16,138 +17,136 @@
         <img alt="logo" src="images/Logo.png" />
       </div>
       <div class="main-navbar">
-        <a href="#" class="active nav-link"><span>Accueil</span></a>
-        <a href="#" class="nav-link"><span>Détails de l'évènement</span></a>
-        <a href="#" class="nav-link"><span>À propos</span></a>
-        <a href="#" class="nav-link"><span>Contact</span></a>
-        <a href="#" class="nav-link"><span>Évènements passés</span></a>
-        <a href="javascript:void(0);" class="icon" id="burger-menu">
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
           <i class="fa fa-bars menuIcon"></i>
         </a>
       </div>
     </nav>
   </header>
 
-    <main>
-      <!--HERO-->
-      <div class="hero-section">
-        <div class="hero-content">
-          <h1 class="hero-headline">
-            Marathon national<br>
-            de jeux vidéos
-          </h1>
-          <div class="hero-text">
-            <div>Vous aimez jouer ?</div>
-            <div>Notre prochain évènement gaming est ouvert
-            aux réservations... Places limitées !</div>
-          </div>
-          <button class="btn-signup modal-btn">
-            Je m'inscris
-          </button>
-        </div>
-        <div class="hero-img">
-          <img src="images/bg_img.jpg" alt="img" />
-        </div>
+  <main>
+    <!--HERO-->
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          Marathon national<br>
+          de jeux vidéos
+        </h1>
+        <p class="hero-text">
+          Vous aimez jouer ? Notre prochain évènement gaming est ouvert
+          aux réservations... Places limitées !
+        </p>
         <button class="btn-signup modal-btn">
           Je m'inscris
-          </button>
+        </button>
       </div>
+      <div class="hero-img">
+        <img src="images/bg_img.jpg" alt="img" />
+      </div>
+      <button class="btn-signup modal-btn">
+        Je m'inscris
+      </button>
+    </div>
 
-      <!--MODAL-->
-      <div class="bground fond">
-        <div class="content">
-          <span class="close"></span>
-          <div class="modal-body">
-            <!--FORM-->
-            <form id="form" name="reserve" action="index.html" method="get">
-              <!-- FIRST NAME -->
-              <div class="formData">
-                <label for="first">Prénom</label><br>
-                <input class="text-control" type="text" id="first" name="first" minlength="2"
-                  onfocusout="verifFirstName()"/>
-                <p class="errorText">Veuillez saisir un prénom à 2 caractères ou plus.</p>
-              </div>
-              <!-- LAST NAME -->
-              <div class="formData">
-                <label for="last">Nom</label><br>
-                <input class="text-control" type="text" id="last" name="last"  onfocusout="verifLastName()"/>
-                <p class="errorText">Veuillez entrer un nom à 2 caractères ou plus.</p>
-              </div>
-              <!-- EMAIL -->
-              <div class="formData">
-                <label for="email">E-mail</label><br>
-                <input class="text-control" type="email" id="email" name="email" onfocusout="verifEmail()"/>
-                <p class="errorText">Veuillez saisir un  e-mail valide.</p>
-              </div>
-              <!-- BIRTHDATE -->
-              <div class="formData">
-                <label for="birthdate">Date de naissance</label><br>
-                <input class="text-control" type="date" id="birthdate" name="birthdate" min="1950-01-01" max="2003-01-01" onfocusout="verifBirthdate()" />
-                <p class="errorText">Veuillez entrer une date valide.</p>
-              </div>
-              <!-- TOURNAMENTS -->
-              <div class="formData">
-                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input class="text-control" type="number"  id="quantity" name="quantity"  onfocusout="verifTournements()">
-                <p class="errorText">Veuillez entrer un nombre de tournois.</p>
-              </div>
-              <!-- LOCATIONS -->
-              <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-              
-              <div class="formData" onchange="verifCity()">
-                <input class="checkbox-input" type="checkbox" id="location1" name="location" value="New York" />
-                <label class="checkbox-label" for="location1">
-                  <span class="checkbox-icon"></span>
-                  New York</label>
-                <input class="checkbox-input" type="checkbox" id="location2" name="location" value="San Francisco" />
-                <label class="checkbox-label" for="location2">
-                  <span class="checkbox-icon"></span>
-                  San Francisco</label>
-                <input class="checkbox-input" type="checkbox" id="location3" name="location" value="Seattle" />
-                <label class="checkbox-label" for="location3">
-                  <span class="checkbox-icon"></span>
-                  Seattle</label>
-                <input class="checkbox-input" type="checkbox" id="location4" name="location" value="Chicago" />
-                <label class="checkbox-label" for="location4">
-                  <span class="checkbox-icon"></span>
-                  Chicago</label>
-                <input class="checkbox-input" type="checkbox" id="location5" name="location" value="Boston" />
-                <label class="checkbox-label" for="location5">
-                  <span class="checkbox-icon"></span>
-                  Boston</label>
-                <input class="checkbox-input" type="checkbox" id="location6" name="location" value="Portland" />
-                <label class="checkbox-label" for="location6">
-                  <span class="checkbox-icon"></span>
-                  Portland</label>
-                  <p id ="errorCity" class="errorText">Veuillez séléctionner une ville.</p>
-              </div>
-              <!-- TERMS OF USE -->
-              <div class="formData" onchange="verifConditions()">
-                <input class="checkbox-input" type="checkbox" id="checkbox1" />
-                <label class="checkbox2-label" for="checkbox1">
-                  <span class="checkbox-icon"></span>
-                  J'ai lu et accepté les conditions d'utilisation.
-                </label>
-                <p id ="errorConditionsText" class="errorText">Veuillez accepter les conditions d'utilisations.</p>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
-                <label class="checkbox2-label" for="checkbox2">
-                  <span class="checkbox-icon"></span>
-                  Je souhaite être prévenu des prochains évènements.
-                </label>
-                <br>
-              </div>
-              <input class="btn-submit" type="submit" value="C'est parti" />
-            </form>
-          </div>
+    <!--MODAL-->
+    <div class="bground fond">
+      <div class="content">
+        <span class="close"></span>
+        <div class="modal-body">
+          <!--FORM-->
+          <form id="form" name="reserve" action="index.html" method="get">
+            <!-- FIRST NAME -->
+            <div class="formData">
+              <label for="first">Prénom</label><br>
+              <input class="text-control" type="text" id="first" name="first" minlength="2"
+                 onfocusout="verifFirstName()"/>
+              <p class="errorText">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
+            </div>
+            <!-- LAST NAME -->
+            <div class="formData">
+              <label for="last">Nom</label><br>
+              <input class="text-control" type="text" id="last" name="last"  onfocusout="verifLastName()"/>
+              <p class="errorText">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
+            </div>
+            <!-- EMAIL -->
+            <div class="formData">
+              <label for="email">E-mail</label><br>
+              <input class="text-control" type="email" id="email" name="email"  onfocusout="verifEmail()"/>
+              <p class="errorText">Veuillez entrer une adresse mail valide.</p>
+            </div>
+            <!-- BIRTHDATE -->
+            <div class="formData">
+              <label for="birthdate">Date de naissance</label><br>
+              <input class="text-control" type="date" id="birthdate" name="birthdate" min="1950-01-01" max="2003-01-01" onfocusout="verifBirthdate()" />
+              <p class="errorText">Veuillez entrer une date de naissance valide.</p>
+            </div>
+            <!-- TOURNAMENTS -->
+            <div class="formData">
+              <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" placeholder="0" onfocusout="verifTournements()">
+              <p class="errorText">Veuillez entrer une valeur entre 0 et 99.</p>
+            </div>
+            
+            <!-- LOCATIONS -->
+            <p class="text-label">Quelles villes ?</p>            
+            <div class="formData" onchange="verifCity()">
+              <input class="checkbox-input" type="checkbox" id="location1" name="location" value="New York" />
+              <label class="checkbox-label" for="location1">
+                <span class="checkbox-icon"></span>
+                New York</label>
+              <input class="checkbox-input" type="checkbox" id="location2" name="location" value="San Francisco" />
+              <label class="checkbox-label" for="location2">
+                <span class="checkbox-icon"></span>
+                San Francisco</label>
+              <input class="checkbox-input" type="checkbox" id="location3" name="location" value="Seattle" />
+              <label class="checkbox-label" for="location3">
+                <span class="checkbox-icon"></span>
+                Seattle</label>
+              <input class="checkbox-input" type="checkbox" id="location4" name="location" value="Chicago" />
+              <label class="checkbox-label" for="location4">
+                <span class="checkbox-icon"></span>
+                Chicago</label>
+              <input class="checkbox-input" type="checkbox" id="location5" name="location" value="Boston" />
+              <label class="checkbox-label" for="location5">
+                <span class="checkbox-icon"></span>
+                Boston</label>
+              <input class="checkbox-input" type="checkbox" id="location6" name="location" value="Portland" />
+              <label class="checkbox-label" for="location6">
+                <span class="checkbox-icon"></span>
+                Portland</label>
+                <p id ="errorCity" class="errorText">Veuillez séléctionner une ville.</p>
+            </div>
+            <!-- TERMS OF USE -->
+            <div class="formData" onchange="verifConditions()">
+              <input class="checkbox-input" type="checkbox" id="checkbox1" />
+              <label class="checkbox2-label" for="checkbox1">
+                <span class="checkbox-icon"></span>
+                J'ai lu et accepté les conditions d'utilisation.
+              </label>
+              <p id ="errorConditionsText" class="errorText">Veuillez accepter les conditions d'utilisations.</p>
+              <input class="checkbox-input" type="checkbox" id="checkbox2" />
+              <label class="checkbox2-label" for="checkbox2">
+                <span class="checkbox-icon"></span>
+                Je souhaite être prévenu des prochains évènements.
+              </label>
+              <br>
+            </div>
+            <input class="btn-submit" type="submit" value="C'est parti" />
+          </form>
         </div>
       </div>
+    </div>
     </main>
     <footer>
-        <p class="copyrights">
-          Copyright 2014 - 2020, GameOn Inc.
-        </p>
+      <p class="copyrights">
+        Copyright 2014 - 2020, GameOn Inc.
+      </p>
     </footer>
     <script src="modal.js"></script>
   </body>
 </html>
-
