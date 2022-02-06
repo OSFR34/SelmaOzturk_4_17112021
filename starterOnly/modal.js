@@ -140,7 +140,7 @@ function verifCity() {
 }
 
 function verifConditions() {
-    // si la checkbox des conditions n'est pas checked, alors le message d'erreur s'affiche.
+    // si la checkbox des conditions n'est pas coché, alors le paramètrage d'erreur s'affiche.
     if (!checkboxConditions.checked) {
         errorConditionsText.style.display = 'block';
         return false;
@@ -150,9 +150,9 @@ function verifConditions() {
     }
 }
 
-// Ecoute de l'évèvement 'SUBMIT' du formulaire
+// Ecouteur d'évèvement 'SUBMIT' du formulaire
 form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Empêche la soumission du formulaire.
+    e.preventDefault(); // Empêche la soumission du formulaire tant que toutes les conditions ne sont pas réunies.
 
     //si les inputs sont valides, le message de validation s'affiche
     if(verifFirstName() === true && verifLastName() === true 
