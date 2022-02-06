@@ -124,10 +124,10 @@ function verifTournements() {
 
 function verifCity() {
     let check1 = false;
-    // On observe les inputs pour savoir s'il y en a un de checked
+    // On observe les inputs pour savoir s'il y en a un de coché.
     for(i=0; i<locationSelector.length; i++) {
         if (locationSelector[i].checked) {
-           check1 = true; // si une est checked alors check1 = true
+           check1 = true; // si l'une est coché alors check1 = true
         }
     }
     if (check1 == false) { // si check1 est = false (càd aucune checkbox n'est checked) alors le message d'erreur s'affiche.
