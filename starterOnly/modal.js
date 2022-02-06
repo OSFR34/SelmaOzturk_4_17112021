@@ -1,286 +1,200 @@
 "use strict";
 
-
-// display navBar
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
   }
-}
 
 document.querySelector("#burger-menu").addEventListener("click", editNav);
+  
+  // DOM Elements
+  const modalbg = document.querySelector(".bground");
+  const modalBtn = document.querySelectorAll(".modal-btn");
+  const formData = document.querySelectorAll(".formData");
+  const closeModalBtn = document.querySelector(".close")
+  
+  // launch modal event
+  modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+  
+  // launch modal form
+  function launchModal() {
+    modalbg.style.display = "block";
+  }
+  
+  //close modal event
+  closeModalBtn.addEventListener("click", closeModal)
+  
+  //close modal form
+  function closeModal() {
+    modalbg.style.display = "none";
+    // document.querySelector('form').reset(); // le formulaire se referme à la fermeture du modal.
+  }
+  
+// FORM VALIDATION
 
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
+  //DOM elements
+const form = document.getElementById('form');
 
-// launch modal event
+const firstName = document.getElementById('first');
+const lastName = document.getElementById('last');
+const email = document.getElementById('email');
+const birthdate = document.getElementById('birthdate');
+const tournamentQuantity = document.getElementById('quantity');
+const locationSelector = document.getElementsByName("location");
+const errorCityText = document.getElementById('errorCity');
+const checkboxConditions = document.getElementById('checkbox1');
+const errorConditions = document.getElementById('errorConditionsText');
 
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+//REGEX
+let nameRegex = /^[a-zA-ZÀ-ÖØ-öø-ÿ-]{2,}/;
+let emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; 
 
-const closeButtons = document.querySelectorAll(".close");
-
-closeButtons.forEach((closeButton)=>{
-
-    closeButton.addEventListener("click", function(){
-
-      document.querySelector(".bground").style.display = "none";
-
-    });
-
-});
-
-// SUBMITTED CONFIRMATION
-
-document.querySelector(".btn-submit").addEventListener("click", function(){
-
-      const nameValue = document.querySelector("#first").value;
-
-      const lastNameValue = document.querySelector("#last").value;
-
-      const emailValue = document.querySelector("#email").value;
-
-      const dateValue = document.querySelector("#birthdate").value;
-
-      const tournamentsNumberValue = document.querySelector("#quantity").value;
-
-      const city = document.querySelectorAll(".checkbox-input-radio");
-
-      const conditions = document.querySelector("#checkbox1").checked;
-
-      const resultVerifLastName = verifLastName(lastNameValue);
-
-      const resultVerifName = verifName(nameValue);
-
-      const resultVerifEmail = verifEmail(emailValue);
-
-      const resultVerifDate = verifDate(dateValue);
-
-      const resultVerifTournamentsNumber = verifTournamentsNumber(tournamentsNumberValue);
-
-      const resultVerifCity = verifCity(city);
-
-      const resultVerifConditions = verifConditions(conditions);
-
-
-      if(resultVerifLastName === true &&
-         resultVerifName === true && 
-         resultVerifEmail === true && 
-         resultVerifDate === true && 
-         resultVerifTournamentsNumber === true && 
-         resultVerifCity === true && 
-         resultVerifConditions === true){
-
-          // display validation message.
-         
-
-          const modalBody = document.querySelector(".modal-body");
-
-          const form = document.querySelector("#contact-form");
-
-          form.reset();
-
-          const successMessage = `
-              <div class="success-message">
-                <div>Merci pour </div>
-                <div>votre inscription </div>
-              </div>
-
-              <input readonly
-                  id="close-success-message"
-                  class="button btn-submit"
-                  value="Fermer"
-              />
-          
-          `;
-
-          // En : modal-body contains the form that is in the modal before the injection of the success message.
-          // Fr : modal-body contient le formulaire qu'il y a dans la modale avant l'injection du message de reussite.
-          const storeForm = modalBody.removeChild(form);
-
-          modalBody.innerHTML = successMessage;
-
-          document.querySelector("#close-success-message").addEventListener("click", function(){
-
-              document.querySelector(".bground").style.display = "none";
-              modalBody.innerHTML = "";
-              modalBody.appendChild(storeForm);
-
-          });
-
-      }
-
-  });
-
-// FORM FIELD VALIDATION
-// control validition Name
-function verifName(value){
-
-      const errorMessagePrenom = document.querySelector("#error-message-prenom");     
-
-      if(value === "" || value.length < 2){
-
-          errorMessagePrenom.innerHTML = "Veuillez entrer un  prénom qui a au moins de 2 caractères";
-         
-          return errorMessagePrenom.style.display = "block";
-
-      }
-
-      errorMessagePrenom.style.display = "none";
-
-      return true;
-}  
+// quand l'input est invalide : Affiche message d'erreur et encadre l'input concerné.
+function showError(input) {
+    input.style.border = 'solid 2px #ff4e60';
+    input.nextElementSibling.style.display = "block";
+}
+//quand l'input est valide: annule le message d'erreur avec l'encadré rouge.
+function showSuccess(input) {
+	input.style.border = 'none';
+    input.nextElementSibling.style.display = "none";
+}
+// VALIDATIONS INPUTS
 
 
-// control validition Last Name
-
-function verifLastName(value){
-
-  const errorMessageNom = document.querySelector("#error-message-nom");     
-
-  if(value === "" || value.length < 2){
-
-      errorMessageNom.innerHTML = "Veuillez entrer un nom qui a au moins de 2 caractères";
-
-      return errorMessageNom.style.display = "block";
-
+// champs prénom
+function verifFirstName() {
+    // Si la valeur du champ prénom est vide ou ne correspond pas au REGEX, on affiche l'erreur.
+    if (firstName.value === '' || !firstName.value.match(nameRegex)) {
+        showError(firstName);
+        return false;
+    }else {
+        showSuccess(firstName);
+        return true;
     }
-
-    errorMessageNom.style.display = "none";
-
-  return true;
 }
 
-// control validition e-mail
-
-function  verifEmail(value){ 
-
-  const errorMessageEmail = document.querySelector("#error-message-email");
-
-  if(value === "" || (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/).test(value) === false){
-
-    errorMessageEmail.innerHTML = "Veuillez entrer un e-mail valide";
-
-    return errorMessageEmail.style.display = "block";
-
-  }
-
-  errorMessageEmail.style.display = "none";
-
-  return true;
+//champs nom de famille
+function verifLastName() {
+    // Si la valeur du champ nom est vide ou ne correspond pas au REGEX, on affiche l'erreur.
+    if (lastName.value === '' || !lastName.value.match(nameRegex)) {
+        showError(lastName);
+        return false;
+    }else {
+        showSuccess(lastName);
+        return true;
+    }
 }
 
-// control validition date birth
-
-function verifDate(value){
-
-   const errorMessageDate = document.querySelector("#error-message-date");
-
-   if(value === ""){
-
-      errorMessageDate.innerHTML = "Veuillez entrer une date valide";
-
-      return errorMessageDate.style.display = "block";
-
-   }
-
-   const date = new Date(value);
-
-   const year = date.getFullYear();
-
-   if(year < 1930 || year > 2021){
-
-    errorMessageDate.innerHTML = "Veuillez entrer une date valide";
-
-    return errorMessageDate.style.display = "block";
-
-   }
-
-    errorMessageDate.style.display = "none";
-
-    return true;
-
+//champs email
+function verifEmail() {
+    // Si la valeur du champ email correspond au REGEX, le champ est valide. Sinon on affiche le message d'erreur.
+    if (email.value.match(emailRegex)) { 
+        showSuccess(email);
+        return true;
+    }else {
+        showError(email);
+        return false;
+    }
 }
 
-// control validition number tournament
-
-function verifTournamentsNumber(value){
-
-  const errorMessageTournament = document.querySelector("#error-message-tournament");
-
-  if(value === ""){
-
-    errorMessageTournament.innerHTML = "Veuillez entrer un nombre de tournois";
-
-    return errorMessageTournament.style.display = "block";
-
- }
- 
- errorMessageTournament.style.display = "none";
-
- return true;
-
+//champs date de naissance
+function verifBirthdate() {
+    // Si la date de naissance entrée ne se situe pas entre le min et le max défit dans HTML, on affiche l'erreur.
+    if (birthdate.value< birthdate.min || birthdate.value > birthdate.max) { //si la date de naissance ne se trouve pas entre le min et le max définit dans le HTML
+        showError(birthdate);
+        return false;
+    }else {
+        showSuccess(birthdate);
+        return true;
+    }
 }
 
-// control validition City
 
-function verifCity(citiesCollection){
-
-   const errorMessageCities = document.querySelector("#error-message-cities");
-
-   let isRadioChecked = false;
-
-   const j = citiesCollection.length;
-
-   for(let i=0; i<j; i++){
-
-     if(citiesCollection[i].checked === true){
-
-        isRadioChecked = true;
-        break;
-
-     }
-
-   }
-
-   if(isRadioChecked === false){
-
-     errorMessageCities.innerHTML = "Veuillez choisir une ville";
-     return errorMessageCities.style.display = "block";
-
-   }
-
-   errorMessageCities.style.display = "none";
-   return true;
-
+// champs tournois
+function verifTournements() {
+    // Si le nombre saisi n'est pas pas dans l'intervale entre 0 et 99 alors on affiche le message d'erreur.
+    if (tournamentQuantity.value === "" || tournamentQuantity.value < 0 || tournamentQuantity.value >99) {
+        showError(tournamentQuantity);
+        return false;
+    } else {
+        showSuccess(tournamentQuantity);
+        return true;
+    }
+}
+// champs villes
+function verifCity() {
+    let check1 = false;
+    // On observe les inputs pour savoir s'il y en a un de checked
+    for(i=0; i<locationSelector.length; i++) {
+        if (locationSelector[i].checked) {
+           check1 = true; // si vrai c'est qu'une des villes a été sélectionné.
+        }
+    }
+    if (check1 == false) { // si faux c'est qu'aucune checkbox n'est selectionné) alors le message d'erreur s'affiche.
+         errorCityText.style.display = "block";
+         return false;
+    }else {
+         errorCityText.style.display = "none";
+         return true;
+        }
+}
+// champs conditions générales
+function verifConditions() {
+    // si la checkbox des conditions n'est pas checked, alors le message d'erreur s'affiche.
+    if (!checkboxConditions.checked) {
+        errorConditionsText.style.display = 'block';
+        return false;
+    } else {
+        errorConditionsText.style.display = 'none';
+        return true;
+    }
 }
 
-// control validition conditions 
+// Ecouteur d'évèvement 'SUBMIT'
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Empêche la soumission du formulaire.
 
-function verifConditions(isChecked){
+    //si les inputs sont valides, le message de validation s'affiche
+    if(verifFirstName() === true && verifLastName() === true 
+        && verifEmail() === true && verifBirthdate() === true 
+        && verifTournements() === true && verifCity() === true && verifConditions() === true) {
 
-  const errorMessageConditions = document.querySelector("#error-message-conditions");
+        const modalBody = document.querySelector('.modal-body');
+        const successMessage  = document.createElement('button');
+        modalBody.innerHTML = '<h2>Merci pour<br> votre inscription</h2>';
+        modalBody.style.minHeight = '850px';
+        modalBody.style.textAlign = 'center';
+        modalBody.style.display = 'flex';
+        modalBody.style.flexDirection = 'column';
+        modalBody.style.justifyContent = "center";
+        modalBody.style.alignItems = "center";
+        modalBody.style.padding = "5%";
+        
 
-  if(isChecked === false){
+        successMessage.textContent = "Fermer";
+        successMessage.classList.add('btn-submit');
+        successMessage.classList.add('button');
+        successMessage.style.position = 'absolute';
+        successMessage.style.bottom = '135px';
+        modalBody.appendChild(successMessage); //sucessMessage est enfant de modalBody.
 
-     errorMessageConditions.innerHTML = "Veuillez vérifier les conditions d'utilisation";
+        successMessage.addEventListener("click", closeModal); // Au click du button 'Fermer', la modal se ferme grâce à la fonction closeModal.
+    } else {
+        //Sinon, appeler les fonctions suivantes qui afficheront les messages d'erreurs associés aux inputs invalides.
+        verifFirstName();
+        verifLastName();
+        verifEmail();
+        verifBirthdate();
+        verifTournements();
+        verifCity();
+        verifConditions();
+    }
+})
 
-     return errorMessageConditions.style.display = "block";
 
-  }
-
-  errorMessageConditions.style.display = "none";
-
-  return true;
-
-}
-
-// En :launch modal form
-// Fr : lancer le formulaire modal
-function launchModal() {
-  modalbg.style.display = "block";
-}
+  
