@@ -247,10 +247,10 @@ margin: 8% 3.5% 3.5% 3.5%;
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 0.9rem;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+  margin: 10px 0px 5px 0px;
 }
 input {
   padding: 8px;
@@ -271,6 +271,7 @@ input {
   border-radius: 8px;
   font-size: 20px;
   height: 48px;
+  color: rgb(170, 167, 167);
 }
 
 .checkbox-label,
@@ -279,6 +280,7 @@ input {
   margin-left: 36px;
   font-size: 12px;
   font-weight: normal;
+  padding-bottom: 15px;
 }
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
@@ -444,7 +446,7 @@ input {
 /* selection personnalisée */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 0.9rem;
 }
 .hero-section {
   min-height: 50rem;
@@ -503,7 +505,7 @@ input {
   grid-column: span 8;
 }
 .hero-img img {
-  width: 100%;
+  width: 110%;
   height: 100%;
   display: block;
   object-fit: cover;

@@ -65,35 +65,35 @@
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" minlength="2"
                  onfocusout="verifFirstName()"/>
-              <p class="errorText">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
+              <p class="errorText">Veuillez entrer un prénom de 2 caractères ou plus</p>
             </div>
             <!-- LAST NAME -->
             <div class="formData">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last"  onfocusout="verifLastName()"/>
-              <p class="errorText">Veuillez entrer 2 caractères ou plus pour le champ du nom.</p>
+              <p class="errorText">Veuillez entrer un nom de 2 caractères ou plus</p>
             </div>
             <!-- EMAIL -->
             <div class="formData">
               <label for="email">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email"  onfocusout="verifEmail()"/>
-              <p class="errorText">Veuillez entrer une adresse mail valide.</p>
+              <p class="errorText">Veuillez entrer une adresse mail valide</p>
             </div>
             <!-- BIRTHDATE -->
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
-              <input class="text-control" type="date" id="birthdate" name="birthdate" min="1950-01-01" max="2003-01-01" onfocusout="verifBirthdate()" />
-              <p class="errorText">Veuillez entrer une date de naissance valide.</p>
+              <input class="text-control" type="date" id="birthdate" name="birthdate" min="1947-01-01" max="2012-01-01" onfocusout="verifBirthdate()" />
+              <p class="errorText">Veuillez entrer une date de naissance valide</p>
             </div>
             <!-- TOURNAMENTS -->
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" placeholder="0" onfocusout="verifTournements()">
-              <p class="errorText">Veuillez entrer une valeur entre 0 et 99.</p>
+              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="100"  onfocusout="verifTournements()">
+              <p class="errorText">Veuillez entrer une valeur entre 0 et 100</p>
             </div>
             
             <!-- LOCATIONS -->
-            <p class="text-label">Quelles villes ?</p>            
+            <p class="text-label">A quel(s) tournoi(s) souhaitez-vous participer cette année ?</p>            
             <div class="formData" onchange="verifCity()">
               <input class="checkbox-input" type="checkbox" id="location1" name="location" value="New York" />
               <label class="checkbox-label" for="location1">
@@ -119,18 +119,18 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
-                <p id ="errorCity" class="errorText">Veuillez séléctionner une ville.</p>
+                <p id ="errorCity" class="errorText">Veuillez séléctionner une ville ou plus</p>
             </div>
             <!-- TERMS OF USE -->
             <div class="formData" onchange="verifConditions()">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" />
-              <label class="checkbox2-label" for="checkbox1">
+              <input class="checkbox-input" type="checkbox" id="checkboxCondition1" />
+              <label class="checkbox2-label" for="checkboxCondition1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
-              <p id ="errorConditionsText" class="errorText">Veuillez accepter les conditions d'utilisations.</p>
-              <input class="checkbox-input" type="checkbox" id="checkbox2" />
-              <label class="checkbox2-label" for="checkbox2">
+              <p id ="errorConditionsText" class="errorText">Veuillez accepter les conditions d'utilisations</p>
+              <input class="checkbox-input" type="checkbox" id="checkboxCondition2" />
+              <label class="checkbox2-label" for="checkboxCondition2">
                 <span class="checkbox-icon"></span>
                 Je souhaite être prévenu des prochains évènements.
               </label>
